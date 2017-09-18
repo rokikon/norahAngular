@@ -1,0 +1,176 @@
+@import "../../../styles/colors";
+@import "../../../styles/variables";
+
+:host {
+  background: $background-color;
+
+}
+ //.content {
+ //  width: 19%;
+ //  margin-right: 7px;
+ //  /* padding: 10px; */
+ //  background: #1f2933;
+ //  /* display: inline-block; */
+ //  /* position: relative; */
+ //  /* z-index: 1; */
+ //  /* overflow: hidden; */
+ //  height: 252px;
+ //  /* padding: 11px; */
+ //  margin-bottom: 25px;
+ //}
+.zodiac_box .box-video > div {
+  padding: 10px 5px 15px 10px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.35s;
+  align-items: center;
+}
+.selected-anim {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+}
+.download-anim, .animation-name {
+  padding-left: 25px;
+}
+.leftSideBar {
+  background-color: transparent;
+  margin-top: -80px;
+  padding: 10px 0;
+  width: 200px;
+  height: 620px;
+  margin-left: 40px;
+
+  & ul li {
+    background-color: $navbar-color;
+    position: relative;
+    & a {
+      color: #DCD7E0;
+      border-radius: 0;
+    }
+  }
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  background-color: $blue !important;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  text-decoration: none;
+  background-color: $blue !important;
+}
+
+.subMenuS {
+  float: right;
+  position: absolute;
+  overflow: scroll;
+  margin-left: 70%;
+  margin-top: -13%;
+  width: 100%;
+  height: 0;
+
+  & li {
+    display: none;
+    width: 70%;
+    z-index: 9999;
+    margin-top: -14%;
+    background-color: $home-box-color !important;
+    opacity: 0.7;
+    float: right;
+    cursor: pointer;
+  }
+}
+
+li.presentation:hover {
+  & .subMenuS {
+    height: 337px;
+
+    & .subManuLi {
+      display: block;
+    }
+  }
+}
+
+.menuS li {
+  position: relative;
+
+  &:hover .subMenuS li {
+    display: block;
+  }
+}
+
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+.menuS li:hover .subMenuS li {
+  display: block;
+}
+
+.nav-stacked > li + li {
+  margin-top: 2px;
+  margin-left: 0;
+}
+
+.pagination > li > a, .pagination > li > span {
+  background-color: $navbar-color !important;
+  color: darkgrey;
+  border: 1px solid $home-box-color;
+
+}
+
+.menuS {
+  padding-top: 70px;
+
+}
+
+.radioBox {
+  background-color: $navbar-color;
+  margin-bottom: 1%;
+  & span {
+    font-size: 23px;
+    text-align: center;
+    color: white;
+    margin-left: 3%;
+  }
+  font: $navbar-font;
+}
+
+.del_btn button {
+  padding: 10px 20px !important;
+  width: 160px;
+  margin-top: 18px;
+  margin-right: 20px;
+  font-weight: 400;
+  text-align: center;
+  border: 1px solid $blue;
+  border-radius: 30px;
+  color: #fff;
+  background: $navbar-color none;
+  transition: all 0.2s ease-in-out;
+  font-size: $navbar-font;
+  float: left;
+
+  &:disabled {
+    border: 1px solid grey !important;
+    color: grey !important;
+  }
+
+  i {
+    padding-right: 19%;
+  }
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(2, 117, 216, 0.25);
+  }
+}
+[hidden] {
+  display: none !important;
+}

@@ -1,0 +1,47 @@
+<div class="modal-body authModal"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="reg">
+    <h2>NORAH</h2>
+    <div class="sign"
+         ngClass="{{state === 'login' ? 'active' : ''}}"
+         (click)="switchForm('login')">Sign In
+    </div>
+    <div class="sign"
+         ngClass="{{state !== 'login' ? 'active' : ''}}"
+         (click)="switchForm('registration')">Sign Up
+    </div>
+    <form (submit)="signWithCredentials()" novalidate [formGroup]="authForm" class="login-form">
+      <div class="form-group">
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input formControlName="email" autocomplete="false" required email type="email" class="form-control"
+               id="inputEmail" placeholder="Email ID">
+      </div>
+      <div class="form-group">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input formControlName="password"
+               required minlength="5"
+               maxlength="30"
+               type="password"
+               class="form-control"
+               id="inputPassword"
+               placeholder="Password">
+      </div>
+
+      <button (click)="signWithCredentials()"
+              [class]="'btn btn-default but SignBtn'"
+              type="button"
+              class=""
+              id="loginBtn">{{ state === 'login' ? 'Sign In' : 'Create account' }}
+      </button>
+      <div *ngIf="state === 'login'" class="divider">OR</div>
+      <div *ngIf="state === 'login'" id="firebaseui-auth-container">
+        <button *ngFor="let provider of providers" (click)="loginWithProvider(provider)"
+                class="SignBtn Button Button-{{provider}}">
+          <img width="13px" class="SocialIcon"
+               src="https://www.gstatic.com/firebasejs/ui/0.5.0/images/auth/{{provider.toLowerCase()}}.svg">
+          <span>{{provider}}</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
