@@ -2,7 +2,7 @@ import { AfterViewInit, Component } from '@angular/core';
 import * as firebase from 'firebase';
 
 import { GlobalRef } from '../../global-ref';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -19,7 +19,7 @@ export class MotionEditorComponent implements AfterViewInit {
 
   constructor(   private configurePiwikTracker: ConfigurePiwikTracker,
     private usePiwikTracker: UsePiwikTracker,
-    private authService: AuthService,private global: GlobalRef) { 
+    private authService: AuthService,private global: GlobalRef) {
 
     }
 

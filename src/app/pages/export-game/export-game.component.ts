@@ -4,7 +4,7 @@ import {
   GlobalRef
 } from '../../global-ref';
 
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -69,12 +69,12 @@ export class ExportGameComponent {
     if(this.authService.authenticated){
       console.log(this.authService.currentUser.email);
       this.configurePiwikTracker.setUserId(`"${this.authService.currentUser.email}"`);
-      
+
       this.usePiwikTracker.trackPageView();
     }else {console.log("Not authenticated");
     this.usePiwikTracker.trackPageView();}
   });
 }
-	
+
 
 }

@@ -2,7 +2,7 @@ import { AfterViewInit, Component } from '@angular/core';
 import * as firebase from 'firebase';
 import $ from 'jquery/dist/jquery';
 import { GlobalRef } from '../../global-ref';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -20,8 +20,8 @@ export class StyleTransferComponent implements AfterViewInit {
   constructor(    private configurePiwikTracker: ConfigurePiwikTracker,
     private usePiwikTracker: UsePiwikTracker,
     private authService: AuthService,private global: GlobalRef) {
-    
-  
+
+
   }
 
   ngAfterViewInit() {
@@ -88,15 +88,15 @@ export class StyleTransferComponent implements AfterViewInit {
           left_duration_array.push(durations[i]);
           // if (count <= half_length) {
           //   right_array.push(names[i]);
-            
+
           //   console.log('gone right ' + names[i]);
-            
+
           //   console.log('right duration ' + durations[i]);
           // } else {
           //   left_array.push(names[i]);
-            
+
           //   console.log('gone left ' + names[i]);
-            
+
           //   console.log('left duration ' + durations[i]);
           // }
         }
@@ -117,7 +117,7 @@ export class StyleTransferComponent implements AfterViewInit {
         firebase.storage().ref('mp4Files').child(right_array[0] + '.mp4').getDownloadURL().then(function (downloadUrl) {
           console.log(animDownloadUrl);
           console.log(downloadUrl);
-  
+
           gameInstance.SendMessage('ControllerHelper', 'ExecuteStartFromOutside', animDownloadUrl + '|' + animDownloadUrl);
 
           (document.getElementById('right_anim_name') as any).value = animDownloadUrl;
@@ -460,7 +460,7 @@ export class StyleTransferComponent implements AfterViewInit {
           show: true
         });
       }
-      
+
     }
   }
 

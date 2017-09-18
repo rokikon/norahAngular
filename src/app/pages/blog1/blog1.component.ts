@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -17,7 +17,7 @@ export class Blog1Component {
     private usePiwikTracker: UsePiwikTracker,
     private authService: AuthService){
       usePiwikTracker.trackPageView();
-    
+
   }
   takeToRefrence(){
     window.scrollTo(0,document.body.scrollHeight);
@@ -28,7 +28,7 @@ export class Blog1Component {
     if(this.authService.authenticated){
       console.log(this.authService.currentUser.email);
       this.configurePiwikTracker.setUserId(`"${this.authService.currentUser.email}"`);
-      
+
       this.usePiwikTracker.trackPageView();
     }else {console.log("Not authenticated");
     this.usePiwikTracker.trackPageView();}

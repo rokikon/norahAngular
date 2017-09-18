@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TerrainGenService } from '../terrain-gen/terrain-gen.service';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -17,7 +17,7 @@ export class GameMakerComponent implements OnInit {
 sideBarOpen:boolean=false;
   constructor(  private configurePiwikTracker: ConfigurePiwikTracker,
     private usePiwikTracker: UsePiwikTracker,
-    private authService: AuthService) {  
+    private authService: AuthService) {
 
      }
 
@@ -30,7 +30,7 @@ sideBarOpen:boolean=false;
      $("#main .content").each(function(value){
           $(this)[0].style.display="none";
           //console.log($(this));
-     }); 
+     });
         console.log("id" +id);
     document.getElementById(id).style.display="block";
 
@@ -58,7 +58,7 @@ sideBarOpen:boolean=false;
     document.getElementById("mySidenav").style.width = "0";
     document.getElementById("main").style.marginLeft = "0";
     document.getElementById("openbtn").style.marginLeft = "0";
-    
+
 }
 ngAfterViewInit() {
   $(window).load(() => {

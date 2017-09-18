@@ -4,7 +4,7 @@ import {HttpModule, Http,Response,Headers,RequestOptions, Request, RequestMethod
 
 import { Enemies } from './../../enemies';
 import { Npcs } from './../../npcs';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -37,7 +37,7 @@ export class SniperComponent implements OnInit {
   textureTileSizeX:any;
 
   VR:any;
- 
+
   playerPrefabName:any;
   playerPositionIndex:any;
   playerPowerLeg:any;
@@ -63,8 +63,8 @@ export class SniperComponent implements OnInit {
 
   constructor(     private configurePiwikTracker: ConfigurePiwikTracker,
     private usePiwikTracker: UsePiwikTracker,
-    private authService: AuthService,private formBuilder: FormBuilder,private http:Http) { 
-     
+    private authService: AuthService,private formBuilder: FormBuilder,private http:Http) {
+
 
     //Initi values to the hardcoded vars
     this.someURL="https://www.akashpaul.com";
@@ -78,19 +78,19 @@ export class SniperComponent implements OnInit {
     this.exportForAndroid="true";
     this.exportForIos="false";
     this.exportForWebGl="true";
-  
+
     this.sceneHeightMapFile=this.someURL;
     this.textureTileSizeY="50";
     this.textureTileSizeX="50";
-  
+
     this.VR="false";
-   
+
     this.playerPrefabName="ContractKillerSniper";
     this.playerPositionIndex="0";
     this.playerPowerLeg="200";
     this.playerPowerBody="100";
     this.playerPowerHead="10";
-  
+
     this.gunModelFile=this.someURL;
     this.gunTextureFile=this.someURL;
     this.gunHeightmapFile=this.someURL;
@@ -184,7 +184,7 @@ for(var i=0;i<this.enemies.length;i++){
   urlSearchParams.append(`Enemies[${this.enemies[i].Index}].Power.Body`,"450");
   urlSearchParams.append(`Enemies[${this.enemies[i].Index}].Power.Head`,"1300");
 
-} 
+}
 for(var i=0;i<this.npcs.length;i++){
   urlSearchParams.append('NPCs.Index' ,this.npcs[i].Index);
   urlSearchParams.append(`NPCs[${this.npcs[i].Index}].ModelFile`,this.someURL);
@@ -198,7 +198,7 @@ for(var i=0;i<this.npcs.length;i++){
   urlSearchParams.append(`NPCs[${this.npcs[i].Index}].Power.Body`,"450");
   urlSearchParams.append(`NPCs[${this.npcs[i].Index}].Power.Head`,"777");
 
-} 
+}
 
 
 let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
@@ -237,7 +237,7 @@ const enemy : Enemies={
   FallAnimationFile:this.someURL,
   Leg:140,
   Body:450,
-  Head:1300 
+  Head:1300
 }
 this.enemies.push(enemy);
 
@@ -256,10 +256,10 @@ addNpcs(){
     FallAnimationFile:this.someURL,
     Leg:140,
     Body:450,
-    Head:1300 
+    Head:1300
   }
   this.npcs.push(npc);
-  
+
 }
 ngAfterViewInit() {
   $(window).load(() => {

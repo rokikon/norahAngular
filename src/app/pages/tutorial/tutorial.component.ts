@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -16,7 +16,7 @@ export class TutorialComponent {
   constructor( private configurePiwikTracker: ConfigurePiwikTracker,
     private usePiwikTracker: UsePiwikTracker,
     private authService: AuthService){
-      
+
 
   }
   ngAfterViewInit() {

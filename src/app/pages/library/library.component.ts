@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { Http } from '@angular/http';
 import { LibraryService } from './library.service';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -24,7 +24,7 @@ export class LibraryComponent implements OnInit {
   constructor(    private configurePiwikTracker: ConfigurePiwikTracker,
     private usePiwikTracker: UsePiwikTracker,
     private authService: AuthService,private libService: LibraryService, private http: Http) {
-    
+
     }
 
   ngOnInit() {

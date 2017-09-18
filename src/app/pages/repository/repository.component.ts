@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/debounceTime';
 import { GlobalRef } from '../../global-ref';
 import { RepositoryService } from './repository.service';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -31,7 +31,7 @@ export class RepositoryComponent implements OnInit, AfterViewInit {
   constructor(  private configurePiwikTracker: ConfigurePiwikTracker,
     private usePiwikTracker: UsePiwikTracker,
     private authService: AuthService,private repService: RepositoryService, private global: GlobalRef) {
-  
+
     repService.unselectedTags$.subscribe(tag => {
       this.removeTag(tag);
     });

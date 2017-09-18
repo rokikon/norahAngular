@@ -7,13 +7,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { NouiFormatter } from 'ng2-nouislider';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
 declare const $: any;
 declare const jQuery: any;
-//var express = require('express'); 
+//var express = require('express');
 @Component({
   selector: 'app-char-maker',
   templateUrl: './char-maker.component.html',
@@ -51,12 +51,12 @@ export class CharMakerComponent implements OnInit {
     private sanitizer: DomSanitizer
   )
   {
-    
+
     // this.getInput();
     // this.getOutput();
   }
-  
-  
+
+
   public BaseParams: number[] = [0, 1];
   public Height: number[] = [0, 1];
   public Weight: number[] = [0, 1];
@@ -105,7 +105,7 @@ export class CharMakerComponent implements OnInit {
             $(".expand").on( "click", function() {
               $(this).next().slideToggle(200);
               var $expand = $(this).find(">:first-child");
-           
+
               if($expand.text() == "▼") {
                 $expand.text("►");
              } else {
@@ -200,7 +200,7 @@ this.outputRes = {
   const outputjson = JSON.stringify(this.outputRes);
   var blobinput = new Blob([inputjson], {type: "application/json"});
   var bloboutput = new Blob([outputjson], {type: "application/json"});
-  
+
   let form: FormData = new FormData();
   form.append("input",blobinput, "input.json");
   form.append("output",bloboutput, "output.json");

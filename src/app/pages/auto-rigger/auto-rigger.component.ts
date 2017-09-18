@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { GlobalRef } from '../../global-ref';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -19,7 +19,7 @@ export class AutoRiggerComponent implements AfterViewInit {
   constructor(private configurePiwikTracker: ConfigurePiwikTracker,
     private usePiwikTracker: UsePiwikTracker,
     private authService: AuthService,private global: GlobalRef) {
-      
+
      }
 
   ngAfterViewInit() {

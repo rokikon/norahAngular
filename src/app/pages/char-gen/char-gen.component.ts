@@ -17,7 +17,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { SwiperComponent, SwiperDirective, SwiperConfigInterface } from 'ngx-swiper-wrapper';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -171,7 +171,7 @@ export class CharGenComponent implements OnInit,OnChanges,AfterViewInit {
     private global: GlobalRef,
     private firebaseAuth: AngularFireAuth,
     private firebaseDb: AngularFireDatabase){
-   
+
     const wnd = this.global.nativeGlobal;
     this.toastr = wnd.toastr;
 
@@ -181,13 +181,13 @@ export class CharGenComponent implements OnInit,OnChanges,AfterViewInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    
+
     console.log("change");
 
   }
-  
+
   ngOnInit() {
-    
+
     $(function() {
       setTimeout(function(){
         $(".expand").trigger('click');
@@ -203,7 +203,7 @@ export class CharGenComponent implements OnInit,OnChanges,AfterViewInit {
         }
       });
     });
-    
+
     this.socket.on('files',(data) => {
       console.log("Socket Data Received: ");
 
@@ -226,7 +226,7 @@ export class CharGenComponent implements OnInit,OnChanges,AfterViewInit {
           this.selectedImage3.file = '';
           this.changeHistoryM.push(this.mergedFiles);
         }
-      }      
+      }
 
       //files received
       //load them in the component
@@ -255,7 +255,7 @@ export class CharGenComponent implements OnInit,OnChanges,AfterViewInit {
     });
 //get repo
     this.socket.emit("repo",{part:""});
-    
+
     this.socket.on("exportModel",(data) => {
 
       //export fbx
@@ -384,7 +384,7 @@ export class CharGenComponent implements OnInit,OnChanges,AfterViewInit {
     this.toastr.info(msg);
 
   }
-  
+
   // undo(pos: string) {
 
   //   //undo last changes
@@ -446,10 +446,10 @@ export class CharGenComponent implements OnInit,OnChanges,AfterViewInit {
     // this.sendValues(inputVal,outputVal,"Merge: " + this.bodyParts.part);
     this.sendValues(inputVal, outputVal, "Merge " + this.mergeCount);
   }
- 
+
   imageSelected(index: number, pos: string){
     try {
-      if (pos === "G" && this.processedFiles.files[index] !== '') { 
+      if (pos === "G" && this.processedFiles.files[index] !== '') {
         this.selectedImage1 = Object.assign({}, this.processedFiles.files[index]);
         this.input1Image = Object.assign({}, this.selectedImage1);
         if (this.selectedImage3.file === "" && this.selectedImage2.file !== "") {
@@ -459,7 +459,7 @@ export class CharGenComponent implements OnInit,OnChanges,AfterViewInit {
           this.selectedImage2.file = "";
         }
       } else {
-        if (pos === "M" && this.mergedFiles.files[index] !== '') { 
+        if (pos === "M" && this.mergedFiles.files[index] !== '') {
           this.selectedImage2 = Object.assign({}, this.mergedFiles.files[index]);
           // this.input1Image = Object.assign({}, this.selectedImage2);
         }
@@ -477,7 +477,7 @@ export class CharGenComponent implements OnInit,OnChanges,AfterViewInit {
     var view = $(".scroller-content");
     var move = "250px";
     var sliderLimit = -250;
-    
+
     var currentPosition = parseInt(view.css("left"));
     if (currentPosition < 0) view.stop(false,true).animate({left: "+=" + move},{ duration: 400});
 
@@ -595,7 +595,7 @@ export class CharGenComponent implements OnInit,OnChanges,AfterViewInit {
       "macrodetails/African": (this.ethnicity[1] - this.ethnicity[0])/10,
       "macrodetails/Caucasian": (10 - this.ethnicity[1])/10
     }
-     
+
     for(var attr in DefaultInputValues) {
       if(this.inputRes[attr]){
 
@@ -773,7 +773,7 @@ export class CharGenComponent implements OnInit,OnChanges,AfterViewInit {
       if(event.keyCode == 38) {
 
         //left arrow
-        
+
         let index = this.processedFiles.files.findIndex((x) => x.file == this.selectedImage1.file)
         if(index != 0) {
           this.selectedImage1 = this.processedFiles.files[index - 1];

@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Http, RequestOptions, Headers, URLSearchParams} from '@angular/http'
 import { ModalDirective } from 'ngx-bootstrap/modal/modal.component';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 import "rxjs/Rx";
 
@@ -20,7 +20,7 @@ export class ContactUsComponent {
   public recipient: string;
   public subject: string;
   public message: string;
-  
+
 
   constructor(  private configurePiwikTracker: ConfigurePiwikTracker,
     private usePiwikTracker: UsePiwikTracker,
@@ -28,7 +28,7 @@ export class ContactUsComponent {
     private formBuilder: FormBuilder,
     private http: Http
   ) {
-   
+
     this.contactForm = this.formBuilder.group({
       name: new FormControl(''),
       email: new FormControl(''),
@@ -42,12 +42,12 @@ export class ContactUsComponent {
         name: this.contactForm.controls['name'].value,
         email: this.contactForm.controls['email'].value,
         phone: this.contactForm.controls['phone'].value,
-        text: this.contactForm.controls['message'].value   
+        text: this.contactForm.controls['message'].value
       }
     $.post("https://absentiamailserver.herokuapp.com/mail", body, function(data) {
       if (data === 'ok') {
-        alert("Thank You for contacting us!. We will get back to you soon."); 
-        // this.contactSuccessModal.show(); 
+        alert("Thank You for contacting us!. We will get back to you soon.");
+        // this.contactSuccessModal.show();
       }
   });
   }

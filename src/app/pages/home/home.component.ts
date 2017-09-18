@@ -1,6 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { WOW } from 'wowjs/dist/wow.min.js';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -18,7 +18,7 @@ export class HomeComponent implements AfterViewInit {
     private usePiwikTracker: UsePiwikTracker,
     private authService: AuthService
     ){
-     
+
     }
   ngAfterViewInit() {
     $(window).load(() => {

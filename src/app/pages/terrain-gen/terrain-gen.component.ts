@@ -4,7 +4,7 @@ import * as firebase from 'firebase';
 import { GlobalRef } from '../../global-ref';
 import { HeightMapSocketService } from './HeightMapSocketService';
 import { TerrainGenService } from './terrain-gen.service';
-import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik';
+import { ConfigurePiwikTracker, UsePiwikTracker } from 'Angular2Piwik/dist';
 import { AuthService } from '../auth/auth.service';
 
 
@@ -70,7 +70,7 @@ export class TerrainGenComponent implements AfterViewInit {
       if(this.authService.authenticated){
         console.log(this.authService.currentUser.email);
         this.configurePiwikTracker.setUserId(`"${this.authService.currentUser.email}"`);
-       
+
         this.usePiwikTracker.trackPageView();
       }else {console.log("Not authenticated");
       this.usePiwikTracker.trackPageView();}
